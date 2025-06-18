@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   BarChart as RechartBarChart,
   Bar,
@@ -15,13 +16,13 @@ import {
 import { getBarColor } from "../../utils/helpers/getBarColor";
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
-import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
-import { memo } from "react";
+import { DailyExpenseData } from "@/types/chart.types";
 
-type Props = Pick<CategoricalChartProps, "data"> & {
+interface Props {
+  data: DailyExpenseData[];
   dataKey: string;
   xAxisdataKey: string;
-};
+}
 
 const BarChart = ({ data, dataKey, xAxisdataKey }: Props) => {
   const RenderCustomTooltip = ({

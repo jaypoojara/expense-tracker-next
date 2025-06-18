@@ -19,11 +19,11 @@ import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { memo } from "react";
 
-type Props = Pick<CategoricalChartProps, "data"> & {
+interface Props extends Pick<CategoricalChartProps, "data"> {
   xAxisDataKey: string;
   areaDataKey: string;
   barDataKey: string;
-};
+}
 
 const ComposedChart = ({
   data,

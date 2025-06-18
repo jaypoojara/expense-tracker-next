@@ -12,9 +12,9 @@ import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
 import { memo } from "react";
 
-type Props = Pick<CategoricalChartProps, "data"> & {
+interface Props extends Pick<CategoricalChartProps, "data"> {
   dataKey: string;
-};
+}
 
 const FunnelChart = ({ data, dataKey }: Props) => {
   const RenderCustomTooltip = ({

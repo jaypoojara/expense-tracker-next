@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   CartesianGrid,
   Legend,
@@ -10,7 +11,7 @@ import {
   YAxis,
 } from "recharts";
 import CustomLegend from "../Common/CustomLegend";
-import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
+import { MonthlyExpenseData } from "@/types/chart.types";
 import useTheme from "@/hooks/useTheme";
 import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import TooltipWrapper from "../Common/TooltipWrapper";
@@ -18,10 +19,11 @@ import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { memo } from "react";
 
-type Props = Pick<CategoricalChartProps, "data"> & {
+interface Props {
+  data: MonthlyExpenseData[];
   dataKey: string;
   xAxisdataKey: string;
-};
+}
 
 const LineChart = ({ data, dataKey, xAxisdataKey }: Props) => {
   const { isDarkMode } = useTheme();

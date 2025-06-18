@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   PieChart as RechartPieChart,
   Pie,
@@ -13,15 +14,15 @@ import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import CustomLegend from "../Common/CustomLegend";
 import { PIE_CHART_COLORS } from "@/constants";
-import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
 import useTheme from "@/hooks/useTheme";
-import { memo } from "react";
+import { FinanceOverviewData } from "@/types/chart.types";
 
-type PieChartProps = Pick<CategoricalChartProps, "data"> & {
+interface PieChartProps {
   label: string;
   totalAmount: number;
   dataKey: string;
-};
+  data: FinanceOverviewData[];
+}
 
 const PieChart = ({ label, totalAmount, data, dataKey }: PieChartProps) => {
   const { isDarkMode } = useTheme();

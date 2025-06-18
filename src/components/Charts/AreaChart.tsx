@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   AreaChart as RechartAreaChart,
   Area,
@@ -15,20 +16,21 @@ import {
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
-import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
+import { IncomeTrendData } from "@/types/chart.types";
 import useTheme from "@/hooks/useTheme";
 import { memo } from "react";
 
-type ChartData = {
+interface ChartData {
   month: string;
   amount: number;
   category: string;
-};
+}
 
-type AreaChartProps = Pick<CategoricalChartProps, "data"> & {
+interface AreaChartProps {
+  data: IncomeTrendData[];
   xAxisDataKey: string;
   dataKey: string;
-};
+}
 
 const AreaChart = ({ data, xAxisDataKey, dataKey }: AreaChartProps) => {
   const { isDarkMode } = useTheme();

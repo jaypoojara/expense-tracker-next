@@ -1,9 +1,9 @@
 import useTheme from "@/hooks/useTheme";
 import { ReactNode } from "react";
 
-type LayoutWrapperProps = {
+interface LayoutWrapperProps {
   children: ReactNode;
-};
+}
 
 const LayoutWrapper = ({ children }: LayoutWrapperProps) => {
   const { isDarkMode } = useTheme();

@@ -16,11 +16,11 @@ import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { memo, useMemo } from "react";
 
-type Props = Pick<CategoricalChartProps, "data"> & {
+interface Props extends Pick<CategoricalChartProps, "data"> {
   dataKey: string;
   angleAxisDataKey: string;
   label: string;
-};
+}
 
 const RadarChart = ({ data, dataKey, angleAxisDataKey, label }: Props) => {
   const maxExpense = useMemo(

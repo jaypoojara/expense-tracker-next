@@ -1,6 +1,6 @@
-type CustomTooltipAmountProps = {
+interface CustomTooltipAmountProps {
   amount: string | number;
-};
+}
 
 const CustomTooltipAmount = ({ amount }: CustomTooltipAmountProps) => (
   <p className="text-sm text-gray-600">

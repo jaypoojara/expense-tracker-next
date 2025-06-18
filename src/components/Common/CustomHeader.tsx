@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
-type CustomHeaderProps = {
+interface CustomHeaderProps {
   children: ReactNode;
-};
+}
 
 const CustomHeader = ({ children }: CustomHeaderProps) => (
   <div className="flex items-center justify-between">

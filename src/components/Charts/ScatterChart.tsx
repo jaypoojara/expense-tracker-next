@@ -17,12 +17,12 @@ import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { memo } from "react";
 
-type Props = Pick<CategoricalChartProps, "data"> & {
+interface Props extends Pick<CategoricalChartProps, "data"> {
   xAxisdataKey: string;
   yAxisdataKey: string;
   xAxisLabel: string;
   yAxisLabel: string;
-};
+}
 const ScatterChart = ({
   data,
   xAxisdataKey,

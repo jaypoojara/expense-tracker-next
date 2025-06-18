@@ -28,6 +28,9 @@ const ThemeToggle: React.FC = () => {
           checked={isDarkMode}
           onChange={changeTheme}
           className="sr-only peer"
+          aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
+          role="switch"
+          aria-checked={isDarkMode}
         />
         <div className="w-11 h-6 bg-gray-300 dark:bg-gray-600 rounded-full peer peer-checked:bg-blue-600 transition-colors"></div>
         <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5"></div>
