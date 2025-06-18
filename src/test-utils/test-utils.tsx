@@ -16,14 +16,14 @@ export function renderWithProviders(
   ui: React.ReactElement,
   {
     preloadedState = {
-      theme: { theme: 'light' },
-    },
+      theme: { mode: 'light' },
+    } as Partial<RootState>,
     // Automatically create a store instance if no store was passed in
     store = configureStore({
       reducer: {
         theme: themeReducer,
       },
-      preloadedState,
+      preloadedState: preloadedState as RootState,
     }),
     ...renderOptions
   }: ExtendedRenderOptions = {}
