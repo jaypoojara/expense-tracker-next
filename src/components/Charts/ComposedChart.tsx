@@ -8,10 +8,15 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  TooltipProps,
 } from "recharts";
 import CustomLegend from "../Common/CustomLegend";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
 import useTheme from "@/hooks/useTheme";
+import { NameType } from "recharts/types/component/DefaultTooltipContent";
+import TooltipWrapper from "../Common/TooltipWrapper";
+import CustomTooltipCategory from "../Common/CustomTooltipCategory";
+import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   xAxisDataKey: string;
@@ -26,6 +31,20 @@ const ComposedChart = ({
   barDataKey,
 }: Props) => {
   const { isDarkMode } = useTheme();
+  const RenderCustomTooltip = ({
+    active,
+    payload,
+  }: TooltipProps<NameType, NameType>) => {
+    if (active && payload && payload.length) {
+      return (
+        <TooltipWrapper>
+          <CustomTooltipCategory category={payload[0].payload.month || ""} />
+          <CustomTooltipAmount amount={payload[0].value || 0} />
+        </TooltipWrapper>
+      );
+    }
+    return null;
+  };
   return (
     <div className="mt-6">
       <ResponsiveContainer width="100%" height={300}>
@@ -35,7 +54,7 @@ const ComposedChart = ({
             stroke={`${isDarkMode ? "#ffffff" : "#000000"}`}
           />
           <YAxis />
-          <Tooltip />
+          <Tooltip content={RenderCustomTooltip} />
           <Legend content={CustomLegend} />
           <CartesianGrid stroke="#808080" />
           <Area

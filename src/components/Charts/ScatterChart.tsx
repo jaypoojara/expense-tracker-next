@@ -8,8 +8,13 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  TooltipProps,
 } from "recharts";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
+import { NameType } from "recharts/types/component/DefaultTooltipContent";
+import TooltipWrapper from "../Common/TooltipWrapper";
+import CustomTooltipCategory from "../Common/CustomTooltipCategory";
+import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   xAxisdataKey: string;
@@ -26,6 +31,20 @@ const ScatterChart = ({
 }: Props) => {
   const { isDarkMode } = useTheme();
 
+  const RenderCustomTooltip = ({
+    active,
+    payload,
+  }: TooltipProps<NameType, NameType>) => {
+    if (active && payload && payload.length) {
+      return (
+        <TooltipWrapper>
+          <CustomTooltipAmount amount={payload[0].value || 0} />
+        </TooltipWrapper>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="mt-6">
       <ResponsiveContainer width="100%" height={400}>
@@ -41,7 +60,7 @@ const ScatterChart = ({
             name={yAxisLabel}
             stroke={`${isDarkMode ? "#808080" : "#000000"}`}
           />
-          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+          <Tooltip content={RenderCustomTooltip} />
           <Legend />
           <Scatter name="Expenses" data={data} fill="#8884d8" />
         </RechartScatterChart>
