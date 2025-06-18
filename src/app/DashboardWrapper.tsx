@@ -13,6 +13,7 @@ interface DashboardWrapperProps {
 }
 
 const DashboardWrapper = ({ data }: DashboardWrapperProps) => {
+  if (!data) return;
   return (
     <Provider store={store}>
       <LayoutWrapper>
