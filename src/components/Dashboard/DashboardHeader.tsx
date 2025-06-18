@@ -1,4 +1,3 @@
-import { FaSearch } from "react-icons/fa";
 import ThemeToggle from "../Common/ThemeToggle";
 import useTheme from "@/hooks/useTheme";
 
