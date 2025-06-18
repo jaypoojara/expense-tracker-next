@@ -13,7 +13,6 @@ import {
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
 import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import TooltipWrapper from "../Common/TooltipWrapper";
-import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { memo } from "react";
 

@@ -17,7 +17,6 @@ import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
-import { memo } from "react";
 
 interface Props {
   data: MonthlyExpenseData[];

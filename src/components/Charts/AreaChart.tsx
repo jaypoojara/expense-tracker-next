@@ -18,7 +18,6 @@ import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { IncomeTrendData } from "@/types/chart.types";
 import useTheme from "@/hooks/useTheme";
-import { memo } from "react";
 
 interface ChartData {
   month: string;
