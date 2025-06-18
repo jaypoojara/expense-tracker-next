@@ -1,24 +1,9 @@
-"use client";
+// "use client";
+import { fetchExpenseData } from "@/services/api";
+import DashboardWrapper from "./DashboardWrapper";
 
-import { Provider } from "react-redux";
-import { store } from "@/store/store";
+export default async function Home() {
+  const data = await fetchExpenseData();
 
-import LayoutWrapper from "@/components/Common/LayoutWrapper";
-import DashboardHeader from "@/components/Dashboard/DashboardHeader";
-
-import { ChartGrid } from "@/components/Dashboard/ChartGrid";
-import { CardSection } from "@/components/Dashboard/CardSection";
-
-export default function Home() {
-  return (
-    <Provider store={store}>
-      <LayoutWrapper>
-        <div className="my-5 mx-auto px-4">
-          <DashboardHeader />
-          <CardSection />
-          <ChartGrid />
-        </div>
-      </LayoutWrapper>
-    </Provider>
-  );
+  return <DashboardWrapper data={data} />;
 }

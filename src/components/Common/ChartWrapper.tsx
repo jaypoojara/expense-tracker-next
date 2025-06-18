@@ -10,7 +10,12 @@ interface ChartWrapperProps {
   error?: Error | null;
 }
 
-const ChartWrapper = ({ title, children, isLoading, error }: ChartWrapperProps) => {
+const ChartWrapper = ({
+  title,
+  children,
+  isLoading,
+  error,
+}: ChartWrapperProps) => {
   const { isDarkMode } = useTheme();
 
   const renderContent = () => {
@@ -34,7 +39,7 @@ const ChartWrapper = ({ title, children, isLoading, error }: ChartWrapperProps) 
         </div>
       );
     }
-
+    // return children;
     return <ErrorBoundary>{children}</ErrorBoundary>;
   };
 
