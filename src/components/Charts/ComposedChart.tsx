@@ -17,6 +17,7 @@ import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
+import { memo } from "react";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   xAxisDataKey: string;
@@ -45,6 +46,7 @@ const ComposedChart = ({
     }
     return null;
   };
+
   return (
     <div className="mt-6">
       <ResponsiveContainer width="100%" height={300}>
@@ -70,4 +72,4 @@ const ComposedChart = ({
   );
 };
 
-export default ComposedChart;
+export default memo(ComposedChart);

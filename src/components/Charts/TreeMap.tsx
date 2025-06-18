@@ -9,6 +9,7 @@ import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
+import { memo } from "react";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   dataKey: string;
@@ -48,4 +49,4 @@ const TreeMap = ({ data, dataKey }: Props) => {
   );
 };
 
-export default TreeMap;
+export default memo(TreeMap);

@@ -16,6 +16,7 @@ import { getBarColor } from "../../utils/helpers/getBarColor";
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
+import { memo } from "react";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   dataKey: string;
@@ -59,4 +60,4 @@ const BarChart = ({ data, dataKey, xAxisdataKey }: Props) => {
   );
 };
 
-export default BarChart;
+export default memo(BarChart);

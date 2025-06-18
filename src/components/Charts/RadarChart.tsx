@@ -14,6 +14,7 @@ import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
+import { memo, useMemo } from "react";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   dataKey: string;
@@ -22,7 +23,10 @@ type Props = Pick<CategoricalChartProps, "data"> & {
 };
 
 const RadarChart = ({ data, dataKey, angleAxisDataKey, label }: Props) => {
-  const maxExpense = Math.max(...(data || []).map((d) => d.amount));
+  const maxExpense = useMemo(
+    () => Math.max(...(data || []).map((d) => d.amount)),
+    [data]
+  );
 
   const RenderCustomTooltip = ({
     active,
@@ -70,4 +74,4 @@ const RadarChart = ({ data, dataKey, angleAxisDataKey, label }: Props) => {
   );
 };
 
-export default RadarChart;
+export default memo(RadarChart);

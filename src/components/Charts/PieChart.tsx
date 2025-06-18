@@ -15,6 +15,7 @@ import CustomLegend from "../Common/CustomLegend";
 import { PIE_CHART_COLORS } from "@/constants";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
 import useTheme from "@/hooks/useTheme";
+import { memo } from "react";
 
 type PieChartProps = Pick<CategoricalChartProps, "data"> & {
   label: string;
@@ -89,4 +90,4 @@ const PieChart = ({ label, totalAmount, data, dataKey }: PieChartProps) => {
   );
 };
 
-export default PieChart;
+export default memo(PieChart);

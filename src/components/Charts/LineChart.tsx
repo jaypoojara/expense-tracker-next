@@ -16,6 +16,7 @@ import { NameType } from "recharts/types/component/DefaultTooltipContent";
 import TooltipWrapper from "../Common/TooltipWrapper";
 import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
+import { memo } from "react";
 
 type Props = Pick<CategoricalChartProps, "data"> & {
   dataKey: string;
@@ -67,4 +68,4 @@ const LineChart = ({ data, dataKey, xAxisdataKey }: Props) => {
   );
 };
 
-export default LineChart;
+export default memo(LineChart);

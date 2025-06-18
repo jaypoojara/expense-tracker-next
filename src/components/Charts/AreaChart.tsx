@@ -17,6 +17,7 @@ import CustomTooltipCategory from "../Common/CustomTooltipCategory";
 import CustomTooltipAmount from "../Common/CustomTooltipAmount";
 import { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart";
 import useTheme from "@/hooks/useTheme";
+import { memo } from "react";
 
 type ChartData = {
   month: string;
@@ -84,4 +85,4 @@ const AreaChart = ({ data, xAxisDataKey, dataKey }: AreaChartProps) => {
   );
 };
 
-export default AreaChart;
+export default memo(AreaChart);
