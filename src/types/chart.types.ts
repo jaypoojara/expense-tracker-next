@@ -101,3 +101,50 @@ export interface TreemapProps extends ChartProps {
 export interface FunnelChartProps extends ChartProps {
   data: SpendingFunnelData[];
 }
+
+export interface ExpenseData {
+  incomeTrends: {
+    month: string;
+    amount: number;
+    category: string;
+  }[];
+  financeOverview: {
+    name: string;
+    amount: number;
+  }[];
+  incomeExpense: {
+    month: string;
+    income: number;
+    expense: number;
+  }[];
+  last30DayExpense: {
+    date: string;
+    amount: number;
+  }[];
+  monthlyExpenses: {
+    month: string;
+    amount: number;
+  }[];
+  expenseCategory: {
+    category: string;
+    amount: number;
+  }[];
+  dailyAvg: {
+    day: number;
+    amount: number;
+  }[];
+  paymentMethods: {
+    name: string;
+    value: number;
+    fill: string;
+  }[];
+  necessitySpends: {
+    name: string;
+    size: number;
+  }[];
+  spendingFunnel: {
+    value: number;
+    name: string;
+    fill: string;
+  }[];
+};
