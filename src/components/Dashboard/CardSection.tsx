@@ -1,3 +1,4 @@
+"use client";
 import { cards } from "@/data/CardData";
 import InfoCard from "../Cards/InfoCard";
 

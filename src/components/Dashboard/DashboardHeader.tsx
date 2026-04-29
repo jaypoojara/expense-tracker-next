@@ -1,3 +1,4 @@
+"use client";
 import ThemeToggle from "../Common/ThemeToggle";
 import useTheme from "@/hooks/useTheme";
 
